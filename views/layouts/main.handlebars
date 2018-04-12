@@ -1,19 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Eat-da-burger</title>
-		<meta charset="UTF-8">
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-	</head>
-	<body>
-		{{{ body }}}
+<html lang="en-us">
+<head>
+	<title>Burger Time!</title>
+	<meta charset="utf-8">	
+	<!-- meta data for responsive ability and manifest json file -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	{{!-- Add in jQuery --}}
+	<!-- fav image -->
+	<link rel="icon" type="image/jpg" sizes="16x16" href="/assets/img/ultimate-hamburger.jpg">
+
+	<!-- STYLESHEET LINKS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Satisfy">
+
+	<link rel="stylesheet" type="text/css" href="/assets/css/burger_style.css"> <!-- REMINDER: can start the direction location from the "public" folder, as this folder was added as the static file to be accessed amongst all the files in the server.js. -->
+</head>
+
+<body>
+	<div class="container-fluid background" style="background-image: url(/assets/img/emptyPlate_bbq.jpg);background-position:center; background-repeat:no-repeat; background-size:cover">
+		<div class="row">	
+			<div class="col-sm-12">
+				<header class=" text-center" style="margin-top:350px">
+					<h1>Lisa's Grill</h1>
+	
+					<img id="mainPic" src="/assets/img/ultimate-hamburger.jpg" alt="Your Burger" style="width: 25%; height: 20%; border-radius: 55px">
+					<br/>
+					<br/>
+					<br/>
+
+					<h2 id="str1" style="color: black; text-shadow: none"> <h2>	
+					
+				</header>			
+			</div>
+		</div>
+	</div>
+
+	{{{ body }}}
+
+	<!-- bootstrap scripts -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 	<script src="/assets/js/script.js"></script>
-	</body>
+	
+</body>
 </html>

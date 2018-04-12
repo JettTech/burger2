@@ -1,11 +1,117 @@
-body {
-  width: 99%;
-  height: 900px;
-  background-color: #fc6;
+* {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: 'Satisfy', cursive;
 }
 
-#top-bar {
-  margin-top: 28px;
+img{
+  height: 300px;
+  width: 300px;
+  border-radius: 25%;
+}
+
+.menu-border {
+  background-color: #b48484;
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
+  margin-left: 5%;
+  width: 95%
+}
+
+.submit-section {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#submit-text {
+  width: 50%;
+  height: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: auto;
+  font-size: 38px;
+  border-color: #3e3b3f;
+  border-width:5px;  
+  border-style:groove;
+}
+
+#submit-button {
+  border-radius: 4%;
+  background-color: #518f53;
+  border: 2px solid #0a6620;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.);
+  width:40%;
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 100px;
+  font-family: "Love Ya Like A Sister", cursive;
+  text-shadow: 5px 10px 10px black;
+  position: absolute;
+  top: 170px;
+  left: 2%;
+}
+
+h2 {
+  margin-top: 37px;
+  text-shadow: 5px 10px 10px black;
+  text-align: center;
+  color: #ffffff;
+  font-size: 70px;
+}
+
+h3 {
+  text-align: center;
+  color: #3e3b3f;
+  text-shadow: 1px black;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  margin-bottom: 3%;
+  border-radius: 4%;
+  background-color: #518f53;
+  border: 2px solid #0a6620;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.);
+}
+
+ul {
+  list-style-type: none
+}
+
+li {
+  font-size: 25px;
+  line-height: 2;
+  text-shadow: 1px black;
+  font-weight: bold;
+  color: #3e3b3f;
+}
+
+.order-container {
+  background-color: url("../img/woodBackground.jpg");
+  padding-top: 50px
+}
+
+.main-row {
+  margin-top: 50px;
+  padding-bottom: 100px
+}
+
+.burger-area {
+  margin-left: 8%;
+  width: 80%;
+}
+
+
+.form-box {
+  padding-top: 17%;
 }
 
 .spacing-reset {
@@ -21,48 +127,42 @@ body {
   border: 0;
 }
 
-@media (min-width: 1200px) {
-  .container {
-    width: 990px;
-  }
+#str {
+ width: 800px;
+ padding: 20px;
+ height: auto;
+ font-family: "Love Ya Like A Sister", cursive;
+ font-size: 40px;
+ margin: 200px auto;
+ color: #fff;
+ font-weight: bold;
+ background: #000
 }
 
-@media (min-width: 992px) {
-  .container {
-    width: 990px;
-  }
+
+/*//////////////////////////////////////////////*/
+#mainPic img {
+  height: 450px;
+  width: 300px; 
 }
 
-.enter_section {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
+#mainPic:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s; 
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite; 
 }
 
-#enter_text {
-  width: 400px;
-  height: 80px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: auto;
-  font-size: 38px;
-}
-
-.task {
-  border-color: black;
-  border-style: solid;
-  border-width: 3px;
-}
-
-.button-size {
-  padding-bottom: 20px;
-}
-
-#text-enter-button {
-  margin-top: 10px;
-  margin-bottom: 18px;
-}
-
-h1 {
-  color: #f30;
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
