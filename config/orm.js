@@ -11,69 +11,78 @@ var connection = require("./connection.js");
 
 // Global Functions
 // =====================================================================================
-function printQuestionMark(number) {
-  var arrayQuestionMark = [];
+function printQuestionMarks(num) {
+  var arr = [];
 
-  for (var i = 0; i < number; i++) {
-    arrayQuestionMark.push("?"); //this will allow that (for ever num exisiting/pushed through), 
-    //there is an option to call it. "?" reference an option/non-mandatory
-    // query to be added to the query filter && action.
+  for (var i = 0; i < num; i++) {
+    arr.push("?");
   }
-  return arrayQuestionMark.toString(); //Transfroms the list of nums in the array INTO a Strings  
+
+  return arr.toString();
 }
 
-function objToSQL(object) {
-  var arrayIndexValue = [];
+function objToSql(ob) {
+  // column1=value, column2=value2,...
+  var arr = [];
 
-  for (var x in object) {
-    arrayIndexValue.push(x + " = " + object[x]); //this will push the index AND the value of that index from the object >>> together into the above Array.
+  for (var key in ob) {
+    arr.push(key + "=" + ob[key]);
   }
-  return arrayIndexValue.toString();
+
+  return arr.toString();
 }
 
-// The ORM Logic: Where inputs (through functions) output SQL Queries/Actions..
-// ====================================== ===============================================
 var orm = {
-  all: function(tableInput, callback) {
-    var queryString = "SELECT * FROM " + tableInput + ";"; //MAKE SURE TO INCLUDE THE "SPACE " IN BETWEEN THE NED OF THE SQL COMMAND and the table/query data, otherwise, the system cannot read the table (correctly), and will generage an error...
-    
-    connection.query(queryString, function(error, result) {
-      if(error) throw error;
-      callback(result); //this should console.log(/print out) all the logged items in the provided table(which in this case should the "burgers" table);
+  all: function(tableInput, cb) {
+    var queryString = "SELECT * FROM " + tableInput + ";";
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
     });
-  }, // !! MAKE SURE THIS IS A COMMA, NOT a semi-colon !!
-
-  create: function(table, columns, values, callback) {
+  },
+  
+  // vals is an array of values that we want to save to cols
+  // cols are the columns we want to insert the values into
+  create: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
-    queryString += columns.toString();
+    queryString += cols.toString();
     queryString += ") ";
     queryString += "VALUES (";
-    queryString += printQuestionMark(values.length);
+    queryString += printQuestionMarks(vals.length);
     queryString += ") ";
 
-    console.log(queryString); //for NODE viewing...
-    connection.query(queryString, values, function(error, result) {
-      if (error) throw error;
-      callback (result);
-    });
-  },  // !! MAKE SURE THIS IS A COMMA, NOT a semi-colon !!
+    console.log(queryString);
 
-  update: function(table, objColumnValues, condition, callback) {
+    connection.query(queryString, vals, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+
+  // objColVals would be the columns and values that you want to update
+  // an example of objColVals would be {name: panther, sleepy: true}
+  update: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
-    queryString += "SET";
-    queryString += objToSQL(objColumnValues);
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
     queryString += " WHERE ";
     queryString += condition;
 
-    console.log(queryString); //for NODE viewing...
-    connection.query(queryString, function(error, result) {
-      if (error) throw error;
-      callback (result);
+    console.log(queryString);
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
     });
-  },  // !! MAKE SURE THIS IS A COMMA, NOT a semi-colon !!
+  },
 
   delete: function(table, objColumnValues, condition, callback) {
     var queryString = "DELETE FROM " + table;
@@ -91,5 +100,5 @@ var orm = {
     });
   }
 };
-module.exports = orm;
 
+module.exports = orm;

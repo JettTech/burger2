@@ -2,7 +2,7 @@
 <br/>					
 <br/>
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-<!-- ; padding-top: 90px; padding-left: 50px; padding-right: 50px -->
+
 <div class="container-fluid order-container" style="background-image: url(/assets/images/woodBackground.jpg);background-position:center; background-repeat:no-repeat; background-size:cover">
 	<div class="row burger-area menu-border">
 
@@ -11,16 +11,15 @@
 				<h2 class="text-center"> Today's Menu :</h2>
 				<br/>
 				<ul>
-
 					<li>Tuna Burger</li>	
 					<li>Chili Cheeseburger</li>	
 					<li>Bean Burger</li>
-
+					<li>Lamb Burger</li>
+					<li>Venison Burger</li>
+<!-- 
 				{{#each burger_data}}
-
 					<li>{{this.burger_name}}</li>		
-
-				{{/each}} 
+				{{/each}}  -->
 				</ul>
 			</div>	
 		</div>
@@ -28,8 +27,9 @@
 <!-- ///////////////////////////////////////// -->
 
 		<div class="col-sm-6 form-box">
-			<form  method="POST" action="/burgers/create">  <!-- Create BUTTON/OPTION -->
-				<h3 class="text-center">Choose your burger... or custom build your own!</h3>
+			<form action="/burgers/create" method="POST">
+				<h3 class="text-center">Place Your Order!</h3>
+				<h4 class="text-center"><em>Custom Requests Allowed.</em></h4>
 				<hr style="background-color:white" />
 				<input type="text" class="form-control" id="submit-text" name="burger_name" value="">
 
@@ -45,24 +45,23 @@
 	<div class="row main-row">
 		<div class="menu-border col-sm-5">
 			<h2 class="text-center">Burgers Ordered:</h2>
+			<h4 class="text-center"><em>Click to consume.</em></h4>
 
 			{{#each burger_data}}
-
 				{{#unless this.devoured}}
 
 				<div class="row">
 					<div class="col-sm-8 text-center">
 						<br/>
 						<br/>
-						<form class="eatBurgerForm" method="POST" action="/burgers/update?_method=PUT"> 
+						<form class="eatBurgerForm"> 
 							<input input type="hidden" class="burger_id" type="text" value="{{this.id}}">
-							<button class="btn btn-primary" type="submit"><h4>{{this.id}}. {{this.burger_name}}</h4></button>
+							<button class="btn btn-primary btn-large" type="submit"><h4>{{this.burger_name}}</h4></button>
 						</form>
 					</div>
 				</div>
 
 				{{/unless}} <!-- closing out the "unless >> handlbars-text" -->
-
 			{{/each}} <!-- closing out the "each >> handlbars-text" -->	
 
 		</div>
@@ -73,22 +72,13 @@
 			<h2 class="text-center">Burgers Devoured:</h2>
 
 			{{#each burger_data}}
-
 				{{#if this.devoured}}					
 
-						<input class="form-control" type="text" placeholder="{{this.id}}. {{this.burger_name}}" readonly> <!-- USE: type="submit", WHEN wishing to implement the "DELETE" functionality -->
+				<input class="form-control" type="text" placeholder="Order #{{this.id}}: {{this.burger_name}}" readonly>
 				
 				{{/if}}
-
 			{{/each}}
 		</div>	
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 	</div>		
 </div>
-
-
-		
-
-<!-- 							  {{#if this.images}}
-								<img src={{this.images}} alt="Burger Image">
-							  {{/if}} -->
