@@ -42,7 +42,6 @@ var orm = {
       cb(result);
     });
   },
-  
   // vals is an array of values that we want to save to cols
   // cols are the columns we want to insert the values into
   create: function(table, cols, vals, cb) {
@@ -64,7 +63,6 @@ var orm = {
       cb(result);
     });
   },
-
   // objColVals would be the columns and values that you want to update
   // an example of objColVals would be {name: panther, sleepy: true}
   update: function(table, objColVals, condition, cb) {
@@ -81,22 +79,6 @@ var orm = {
         throw err;
       }
       cb(result);
-    });
-  },
-
-  delete: function(table, objColumnValues, condition, callback) {
-    var queryString = "DELETE FROM " + table;
-
-    queryString += "SELECT "; //MAKE SURE this is the right QUEREY (/action) choice!
-    queryString += objToSQL(objColumnValues);
-    queryString += " WHERE ";
-    queryString += condition;
-
-    console.log(queryString); //for NODE viewing...
-    connection.query(queryString, function(error, result) {
-      if (error) throw error;
-
-      callback (result);
     });
   }
 };
